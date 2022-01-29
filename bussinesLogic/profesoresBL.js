@@ -36,3 +36,55 @@ const DBProfesor = [
 const obtenerTodosLosProfesores = () => {
   return DBProfesor;
 };
+
+const obtenerProfesoresPorSexo = (tipo) => {
+  return DBProfesor.filter((x) => x.sexo === tipo);
+};
+
+const obtenerProfesorPorId = (id) => {
+  return DBProfesor.find((x) => x.id === id);
+};
+
+const crearUnProfesor = (nombre, apellido, edad, sexo, idAlumno) => {
+  const id = DBProfesor.length + 1;
+  const agregarADB = {
+    id,
+    nombre: nombre,
+    apellido: apellido,
+    edad: edad,
+    sexo: sexo,
+    idAlumno: idAlumno,
+  };
+
+  DBProfesor.push(agregarADB);
+
+  return agregarADB;
+};
+
+const actualizarProfesor = (id, sexo, edad) => {
+  const profesor = obtenerProfesorPorId(id);
+
+  if (sexo !== undefined) {
+    //Distonto de undefined y disto null{
+    profesor.sexo = sexo;
+  }
+  if (edad !== undefined) {
+    profesor.edad = edad;
+  }
+
+  return profesor;
+};
+
+const eliminaProfesor = (id) => {
+  const posicionEnArreglo = DBProfesor.findIndex((x) => x.id === id);
+  DBProfesor.splice(posicionEnArreglo, 1);
+};
+
+module.exports = {
+  obtenerTodosLosProfesores,
+  obtenerProfesoresPorSexo,
+  obtenerProfesorPorId,
+  crearUnProfesor,
+  actualizarProfesor,
+  eliminaProfesor,
+};

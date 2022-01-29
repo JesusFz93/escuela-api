@@ -3,14 +3,14 @@ const router = Router();
 
 const {
   obtenerProfesores,
-  crearNuevoProfesor,
+  creaUnNuevoProfesor,
   actualizaProfesor,
-  eliminaProfesor,
+  eliminarProfesor,
 } = require("../controllers/profesoresController");
 
 router.get("/", obtenerProfesores);
-router.post("/", crearNuevoProfesor);
+router.post("/", creaUnNuevoProfesor);
 router.put("/", actualizaProfesor);
-router.delete("/", eliminaProfesor);
+router.delete("/", eliminarProfesor);
 
 module.exports = router;
