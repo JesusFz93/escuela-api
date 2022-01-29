@@ -1,3 +1,5 @@
+const { obtenerAlumnoPorId } = require("./alumnosBL.js");
+
 const DBProfesor = [
   {
     id: 1,
@@ -80,6 +82,32 @@ const eliminaProfesor = (id) => {
   DBProfesor.splice(posicionEnArreglo, 1);
 };
 
+/*
+const obtenerProfesorAlumno = (id) => {
+  const alumno = DBProfesor[id].idAlumno;
+  obtenerAlumnoPorId(alumno);
+
+  const arr = [DBProfesor[id], obtenerAlumnoPorId(alumno)];
+  return arr;
+};
+*/
+
+// "id": 1,
+//         "nombre": "Roberto",
+//         "apellido": "Pérez",
+//         "edad": 30,
+//         "sexo": "M",
+//         "idAlumno": 1
+
+const obtenerProfesorAlumnoDos = () => {
+  const profesores = DBProfesor.map((x) => ({
+    ...x,
+    alumno: obtenerAlumnoPorId(x.idAlumno),
+  }));
+
+  return profesores;
+};
+
 module.exports = {
   obtenerTodosLosProfesores,
   obtenerProfesoresPorSexo,
@@ -87,4 +115,6 @@ module.exports = {
   crearUnProfesor,
   actualizarProfesor,
   eliminaProfesor,
+  //   obtenerProfesorAlumno,
+  obtenerProfesorAlumnoDos,
 };

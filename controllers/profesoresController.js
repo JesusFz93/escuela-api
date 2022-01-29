@@ -5,6 +5,7 @@ const {
   crearUnProfesor,
   actualizarProfesor,
   eliminaProfesor,
+  obtenerProfesorAlumnoDos,
 } = require("../bussinesLogic/profesoresBL");
 
 const respuesta = {
@@ -82,9 +83,29 @@ const eliminarProfesor = (req, res) => {
   return res.json(respuesta);
 };
 
+/*
+const obtenerProfesorAlumno = (req, res) => {
+  const respuesta = obtenerTodosLosProfesores();
+
+  respuesta.messages = "Success";
+  respuesta.data = [];
+  res.json(respuesta);
+};
+*/
+
+const obtenerProfesorAlumnoDosCtrl = (req, res) => {
+  const respuesta = obtenerProfesorAlumnoDos();
+
+  respuesta.messages = "Success";
+  respuesta.data = [];
+  res.json(respuesta);
+};
+
 module.exports = {
   obtenerProfesores,
   creaUnNuevoProfesor,
   actualizaProfesor,
   eliminarProfesor,
+  //   obtenerProfesorAlumno,
+  obtenerProfesorAlumnoDosCtrl,
 };
