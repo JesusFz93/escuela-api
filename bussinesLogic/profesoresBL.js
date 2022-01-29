@@ -108,6 +108,8 @@ const obtenerProfesorAlumnoDos = () => {
   return profesores;
 };
 
+/* RECUERDA CERRAR EL LIVE SHARE XD  - xd gracias por el recuerdo*/
+
 module.exports = {
   obtenerTodosLosProfesores,
   obtenerProfesoresPorSexo,
